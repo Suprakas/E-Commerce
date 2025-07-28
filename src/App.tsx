@@ -1,16 +1,18 @@
-import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
-import { lazy, Suspense } from 'react'
-import Loader from './components/loader'
-import "./styles/app.scss"
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Suspense, lazy } from "react";
+import Loader from "./components/loader";
 
-// const Home = lazy(() => import ("./pages/home"))
-// const Search = lazy(() => import("./pages/search"))
-// const Cart = lazy(() => import("./pages/cart"))
-
-const Dashboard = lazy(() => import("./pages/dashboard"))
-const Products = lazy(() => import("./pages/products"))
-const Customers = lazy(() => import("./pages/customers"))
-const Transaction = lazy(() => import("./pages/transactions"))
+const Dashboard = lazy(() => import("./pages/dashboard"));
+const Products = lazy(() => import("./pages/products"));
+const Transaction = lazy(() => import("./pages/transactions"));
+const Customers = lazy(() => import("./pages/customers"));
+const NewProduct = lazy(() => import("./pages/management/newProduct"));
+const ProductManagement = lazy(
+  () => import("./pages/management/productManagement")
+);
+const TransactionManagement = lazy(
+  () => import("./pages/management/transactionManagement")
+);
 
 const BarCharts = lazy(() => import("./pages/charts/barCharts"));
 const LineCharts = lazy(() => import("./pages/charts/lineCharts"));
@@ -25,24 +27,21 @@ const App = () => {
     <Router>
       <Suspense fallback={<Loader />}>
         <Routes>
-          {/* <Route
+          <Route
             path="/"
             element={
               <Link to="/admin/dashboard">
                 <button>Visit Dashboard</button>
               </Link>
             }
-          /> */}
+          />
 
           <Route path="/admin/dashboard" element={<Dashboard />} />
           <Route path="/admin/product" element={<Products />} />
           <Route path="/admin/customer" element={<Customers />} />
           <Route path="/admin/transaction" element={<Transaction />} />
-          
 
           {/* Charts */}
-
-              {/* Charts */}
 
           <Route path="/admin/chart/bar" element={<BarCharts />} />
           <Route path="/admin/chart/pie" element={<PieCharts />} />
@@ -54,13 +53,17 @@ const App = () => {
           <Route path="/admin/app/coupon" element={<Coupon />} />
           <Route path="/admin/app/toss" element={<Toss />} />
 
-
           {/* Management */}
-         
+          <Route path="/admin/product/new" element={<NewProduct />} />
+          <Route path="/admin/product/:id" element={<ProductManagement />} />
+          <Route
+            path="/admin/transaction/:id"
+            element={<TransactionManagement />}
+          />
         </Routes>
       </Suspense>
     </Router>
   );
 };
 
-export default App
+export default App;

@@ -56,10 +56,10 @@ export const BarChart = ({
     indexAxis: horizontal ? "y" : "x",
     plugins: {
       legend: {
-        display: false,
+        display: true,
       },
       title: {
-        display: false,
+        display: true,
       },
     },
 

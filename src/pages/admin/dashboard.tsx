@@ -1,12 +1,14 @@
 import { FaRegBell } from "react-icons/fa";
 import AdminSidebar from "../../components/admin/adminSidebar";
 import { BsSearch } from "react-icons/bs";
-import userImg from "../../assets/userpic.png";
 import { HiTrendingUp, HiTrendingDown } from "react-icons/hi";
 import data from "../../assets/data.json";
 import { BarChart, DoughnutChart } from "../../components/admin/charts";
 import { BiMaleFemale } from "react-icons/bi";
 import Table from "../../components/admin/dashboardTable";
+
+const userImg =
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp";
 
 const dashboard = () => {
   return (

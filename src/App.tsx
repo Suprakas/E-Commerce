@@ -45,7 +45,6 @@ const NewDiscount = lazy(() => import("./pages/admin/management/newDiscount"));
 
 const App = () => {
   
-
   return (
     
     <Router>
